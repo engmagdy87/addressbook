@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage ("clone the repository") {
       steps {
-        git "https://github.com/upshiftnow/addressbook.git"
+        git "https://github.com/engmagdy87/addressbook.git"
       }
     }
     stage ("compile and package the project") {
