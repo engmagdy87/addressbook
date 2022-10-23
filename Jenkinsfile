@@ -4,6 +4,9 @@ pipeline {
         maven 'myMaven'
         jdk 'Myjava'
     }
+  environment {
+    dockerhub=credentials('dockerhub')
+  }  
   stages {
     stage ("clone the repository") {
       steps {
