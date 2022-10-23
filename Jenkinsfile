@@ -1,5 +1,4 @@
 pipeline {
- 
   agent any
   tools {
         maven 'myMaven'
@@ -11,14 +10,16 @@ pipeline {
         git "https://github.com/upshiftnow/addressbook.git"
       }
     }
-    stage ("compile the project") {
+    stage ("compile and package the project") {
       steps {
         sh "mvn compile"
+        sh "mvn package"
       }
     }
-    stage ("Tests") {
+    stage ("dockerize the project") {
       steps {
-        sh "mvn test"
+        sh "docker build . -t addressbook-assignment:latest"
+        sh "docker push"
       }
     }
   }
