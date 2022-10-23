@@ -18,8 +18,8 @@ pipeline {
     }
     stage ("dockerize the project") {
       steps {
-        sh "docker build . -t addressbook-assignment:latest"
-        sh "docker push addressbook-assignment:latest"
+        sh "docker build -t mmagdy87/addressbook-assignment:latest ."
+        sh "docker push mmagdy87/addressbook-assignment:latest"
       }
     }
   }
